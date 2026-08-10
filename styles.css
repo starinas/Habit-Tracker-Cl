@@ -1,0 +1,506 @@
+/* ============================================================
+   Environmental Habit Tracker — Field Journal theme
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --fog:        #EDF0E6;   /* page background */
+  --paper:      #F7F8F2;   /* card background */
+  --ink:        #22301D;   /* primary text */
+  --ink-soft:   #52604B;   /* secondary text */
+  --moss:       #4C7A3C;   /* primary accent / leaf */
+  --moss-dark:  #345228;
+  --amber:      #C98A2C;   /* warm accent */
+  --bark:       #6B5843;   /* borders / dividers */
+  --line:       rgba(34, 48, 29, 0.14);
+  --shadow:     rgba(34, 48, 29, 0.10);
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Work Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--fog);
+  background-image:
+    radial-gradient(circle at 1px 1px, var(--line) 1px, transparent 0);
+  background-size: 26px 26px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--moss-dark); }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- Header ---------- */
+header.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.brand-row {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 1.1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  color: var(--moss);
+}
+
+.brand-row h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.brand-row .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--moss-dark);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+/* ---------- Nav ---------- */
+.navbar { border-top: 1px solid var(--line); }
+
+.navmenu {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.nav-item { margin: 0; }
+
+.nav-link {
+  display: inline-block;
+  padding: 0.85rem 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--ink-soft);
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-link:hover { color: var(--moss-dark); }
+
+.nav-link.current {
+  color: var(--ink);
+  border-bottom-color: var(--amber);
+}
+
+/* ---------- Layout ---------- */
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.lede {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  max-width: 42ch;
+  margin: 0 0 2rem;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 0 0 0.75rem;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px var(--shadow);
+}
+
+.card + .card { margin-top: 1.25rem; }
+
+.hairline {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 2.5rem 0;
+}
+
+/* ---------- Home page ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 1rem 0 3rem;
+}
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; }
+}
+
+.hero h2 {
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  line-height: 1.15;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.7rem 1.3rem;
+  border-radius: 7px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease;
+  display: inline-block;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary { background: var(--moss); color: #fff; }
+.btn-primary:hover { background: var(--moss-dark); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--bark);
+}
+.btn-ghost:hover { background: rgba(107,88,67,0.08); }
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.feature-grid .card svg { width: 28px; height: 28px; color: var(--moss); margin-bottom: 0.6rem; }
+
+/* ---------- Sprout signature (grows with streak) ---------- */
+.sprout-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.sprout-svg { width: 140px; height: 160px; }
+
+.streak-count {
+  font-family: var(--font-mono);
+  font-size: 2.4rem;
+  color: var(--moss-dark);
+  margin: 0.35rem 0 0;
+}
+
+.streak-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.stat-row {
+  display: flex;
+  justify-content: center;
+  gap: 2.25rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.stat-row .stat { text-align: center; }
+.stat-row .stat .num {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--ink);
+}
+.stat-row .stat .lbl {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- Tracker layout ---------- */
+.tracker-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+@media (max-width: 880px) {
+  .tracker-grid { grid-template-columns: 1fr; }
+}
+
+/* Calendar */
+.cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.cal-head .month-label {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.cal-nav-btn {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1;
+}
+.cal-nav-btn:hover { background: rgba(76,122,60,0.1); border-color: var(--moss); }
+
+.cal-weekdays,
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.cal-weekdays span {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  padding-bottom: 0.4rem;
+}
+
+.cal-day {
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--fog);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 0.85rem;
+  color: var(--ink);
+  position: relative;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.cal-day:hover { border-color: var(--moss); }
+
+.cal-day.faded { color: var(--ink-soft); opacity: 0.4; cursor: default; }
+.cal-day.today { border-color: var(--amber); border-width: 2px; }
+.cal-day.selected { background: var(--moss); color: #fff; border-color: var(--moss-dark); }
+.cal-day.selected .dot { background: #fff; }
+
+.cal-day .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--moss);
+}
+
+/* Day panel */
+.day-panel h3 { margin-bottom: 0.2rem; }
+.day-panel .day-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+.habit-list { list-style: none; margin: 0; padding: 0; }
+
+.habit-list li {
+  border-bottom: 1px solid var(--line);
+}
+.habit-list li:last-child { border-bottom: none; }
+
+.habit-check {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 0.1rem;
+  cursor: pointer;
+  font-size: 0.94rem;
+}
+
+.habit-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--moss);
+  cursor: pointer;
+}
+
+.habit-check .remove-habit {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.4rem;
+}
+.habit-check .remove-habit:hover { color: #b3432c; }
+
+.add-habit-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.add-habit-row input[type="text"] {
+  flex: 1;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--bark);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  background: var(--fog);
+  color: var(--ink);
+}
+
+/* ---------- Tips page ---------- */
+.tip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.tip-grid .card .tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--moss-dark);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Company page ---------- */
+table.impact-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+table.impact-table caption {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+table.impact-table th,
+table.impact-table td {
+  text-align: left;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+table.impact-table th {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+
+/* ---------- About page ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Footer ---------- */
+footer.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Toast ---------- */
+#toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  transition: transform 0.25s ease;
+  z-index: 20;
+}
+#toast.show { transform: translateX(-50%) translateY(0); }
