@@ -122,7 +122,16 @@ header.site-header {
   color: var(--ink);
   border-bottom-color: var(--amber);
 }
-
+/* ---------- Link ---------- */
+.link {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  align-items: center;
+  justify-content:center;
+   display: flex;
+   text-align: center; 
+}
 /* ---------- Layout ---------- */
 main {
   max-width: 1080px;
@@ -151,8 +160,9 @@ h3 {
   font-weight: 600;
   font-size: 1.15rem;
   margin: 0 0 0.5rem;
+  
 }
-
+/*
 .card {
   background: var(--paper);
   border: 1px solid var(--line);
@@ -160,8 +170,21 @@ h3 {
   padding: 1.5rem;
   box-shadow: 0 1px 2px var(--shadow);
 }
+*/
 
+.card {
+background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.6rem 0.75rem; /* smaller top/bottom padding */
+  box-shadow: 0 0.5px 0px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* keeps content balanced */
+}
+/*
 .card + .card { margin-top: 1.25rem; }
+*/
 
 .hairline {
   border: none;
@@ -425,9 +448,10 @@ h3 {
 
 /* ---------- Tips page ---------- */
 .tip-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start; 
 }
 
 .tip-grid .card .tag {
@@ -435,14 +459,16 @@ h3 {
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--moss-dark);
-  display: block;
-  margin-bottom: 0.5rem;
+  color: var(--moss-dark);  
+  max-width: 220px; /* Limits how wide a card can stretch */
+  width: 100%;       /* Ensures it shrinks nicely on mobile screens */
+
+  
 }
 
 /* ---------- Company page ---------- */
 table.impact-table {
-  width: 100%;
+  width: 50%;
   border-collapse: collapse;
   font-size: 0.92rem;
 }
