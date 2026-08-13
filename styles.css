@@ -5,7 +5,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
-  --fog:        #EDF0E6;   /* page background */
+  /*--fog:        #EDF0E6;   /* page background */ 
+  /*--fog: #FFF3E0; */
+  --fog: #97B396;
   --paper:      #F7F8F2;   /* card background */
   --ink:        #22301D;   /* primary text */
   --ink-soft:   #52604B;   /* secondary text */
