@@ -469,8 +469,21 @@ background: var(--paper);
 }
 
 /* ---------- Company page ---------- */
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.impact-card {
+  min-width: 0;
+  overflow-x: auto;
+}
+
 table.impact-table {
-  width: 50%;
+  width: 100%;
   border-collapse: collapse;
   font-size: 0.92rem;
 }
@@ -498,6 +511,13 @@ table.impact-table th {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--ink-soft);
+}
+
+/* Stack the cards on smaller screens */
+@media (max-width: 800px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- About page ---------- */
@@ -532,3 +552,19 @@ footer.site-footer {
   z-index: 20;
 }
 #toast.show { transform: translateX(-50%) translateY(0); }
+
+.sources-list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.sources-list li + li {
+  margin-top: 0.5rem;   /* the actual line-to-line spacing */
+}
+
+.sources-list .link {
+  justify-content: flex-start;  /* left-align instead of centered like the tip cards */
+  font-size: 1rem;
+  font-weight: 500;
+}
